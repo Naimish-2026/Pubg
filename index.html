@@ -338,55 +338,52 @@
   </section><!-- /.contact-section -->
 
   <!-- ===== Prize Breakdown (Background-less, perfectly aligned) ===== -->
-  <div class="pb" id="prizeBreakdown">
-    <div class="pb-brand-row">
-      <div class="pb-brand">
-        <span class="pb-pill">realme</span>
-        <span class="pb-pill">India Series</span>
-      </div>
-      <div class="pb-brand"><span class="pb-pill">Esports • 2025</span></div>
+<div class="pb" id="prizeBreakdown">
+  <div class="pb-brand-row">
+    <div class="pb-brand">
+      <span class="pb-pill">Tamboobaba</span>
+      <span class="pb-pill">India Series</span>
     </div>
-
-    <h2 class="pb-title">
-      <span class="pb-sub">Added Prize Pool</span>
-      <strong>Breakdown</strong>
-    </h2>
-
-    <section class="pb-grid">
-      <div class="pb-board" id="pb-left">
-        <div class="pb-header">
-          <div class="pb-tab pb-tab--accent">Pos.</div>
-          <div class="pb-tab pb-tab--muted">Team</div>
-          <div class="pb-tab pb-tab--accent">Prize&nbsp;Pool</div>
-        </div>
-        <!-- rows injected by JS -->
-      </div>
-
-      <div class="pb-board" id="pb-right">
-        <div class="pb-header">
-          <div class="pb-tab pb-tab--accent">Pos.</div>
-          <div class="pb-tab pb-tab--muted">Team</div>
-          <div class="pb-tab pb-tab--accent">Prize&nbsp;Pool</div>
-        </div>
-        <!-- rows injected by JS -->
-      </div>
-    </section>
-
-    <p class="pb-legend">All amounts in INR. “TBD” teams are placeholders until qualifiers conclude.</p>
+    <div class="pb-brand"><span class="pb-pill">Esports • 2025</span></div>
   </div>
 
-  <style>
-    /* ===== Scoped styles (no page background) ===== */
+  <h2 class="pb-title">
+    <span class="pb-sub">Added Prize Pool</span>
+    <strong>Breakdown</strong>
+  </h2>
+
+  <section class="pb-grid">
+    <div class="pb-board" id="pb-left">
+      <div class="pb-header">
+        <div class="pb-tab pb-tab--accent">Pos.</div>
+        <div class="pb-tab pb-tab--muted">Team</div>
+        <div class="pb-tab pb-tab--accent">Prize</div>
+      </div>
+      <!-- rows injected by JS -->
+    </div>
+
+    <div class="pb-board" id="pb-right">
+      <div class="pb-header">
+        <div class="pb-tab pb-tab--accent">Pos.</div>
+        <div class="pb-tab pb-tab--muted">Team</div>
+        <div class="pb-tab pb-tab--accent">Prize</div>
+      </div>
+      <!-- rows injected by JS -->
+    </div>
+  </section>
+
+  <!-- Summary -->
+
+
+<style>
+/* ===== Scoped styles (no page background) ===== */
 .pb{
   --panel:#102e86;
   --panel-2:#0c2670;
   --text:#ffffff;
   --muted:#d7e3ff;
-
-  /* use your play-btn / hero gradient endpoints */
-  --accent:#f90cff;
-  --accent-2:#0cd7e8;
-
+  --accent:#ffffff;
+  --accent-2:#ffffff;
   --divider:rgba(255,255,255,.08);
   --radius:16px;
   --shadow:0 10px 30px rgba(6,22,70,.25);
@@ -399,130 +396,140 @@
   padding:0;
 }
 
+/* Optional: make cards transparent too */
+.pb.pb--flat .pb-board{ background:transparent; border-color:transparent; box-shadow:none; }
+.pb.pb--flat .pb-header .pb-tab--accent{ background:transparent; color:var(--text); border-right:1px solid var(--divider); }
 
-    /* Optional: make cards transparent too */
-    .pb.pb--flat .pb-board{ background:transparent; border-color:transparent; box-shadow:none; }
-    .pb.pb--flat .pb-header .pb-tab--accent{ background:transparent; color:var(--text); border-right:1px solid var(--divider); }
+.pb-brand-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+.pb-brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.pb-pill{padding:.25rem .6rem;border:1px solid var(--divider);border-radius:999px;font-size:.75rem;opacity:.9}
 
-    .pb-brand-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
-    .pb-brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
-    .pb-pill{padding:.25rem .6rem;border:1px solid var(--divider);border-radius:999px;font-size:.75rem;opacity:.9}
+.pb-title{margin:.2rem 0 1rem;font-family: Montserrat, Inter, system-ui, sans-serif;font-weight:800;font-size:clamp(22px,3.8vw,42px);line-height:1.04;letter-spacing:.02em;text-transform:uppercase}
+.pb-sub{display:block;font-size:.56em;letter-spacing:.08em;opacity:.95}
+.pb-title strong{display:block}
 
-    .pb-title{margin:.2rem 0 1rem;font-family: Montserrat, Inter, system-ui, sans-serif;font-weight:800;font-size:clamp(22px,3.8vw,42px);line-height:1.04;letter-spacing:.02em;text-transform:uppercase}
-    .pb-sub{display:block;font-size:.56em;letter-spacing:.08em;opacity:.95}
-    .pb-title strong{display:block}
+.pb-grid{display:grid;grid-template-columns:1fr;gap:var(--gap)}
+@media(min-width:860px){.pb-grid{grid-template-columns:1fr 1fr}}
 
-    .pb-grid{display:grid;grid-template-columns:1fr;gap:var(--gap)}
-    @media(min-width:860px){.pb-grid{grid-template-columns:1fr 1fr}}
+.pb-board{
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)), var(--panel);
+  border:1px solid var(--divider);
+}
 
-    .pb-board{
-      border-radius:var(--radius);
-      overflow:hidden;            /* clip children to rounded corners */
-      box-shadow:var(--shadow);
-      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)), var(--panel);
-      border:1px solid var(--divider);
-    }
+/* === Exact same grid on header + rows === */
+.pb-header, .pb-row{
+  display:grid;
+  grid-template-columns: 72px minmax(0,1fr) 176px; /* pos | team | prize */
+  align-items:center;
+}
 
-    /* === Exact same grid on header + rows === */
-    .pb-header,
-    .pb-row{
-      display:grid;
-      grid-template-columns: 72px minmax(0,1fr) 176px; /* pos | team | prize */
-      align-items:center;
-    }
+.pb-header{
+  border-bottom:1px solid var(--divider);
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(0,0,0,.05)), var(--panel);
+}
 
-    .pb-header{
-      border-bottom:1px solid var(--divider);
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(0,0,0,.05)), var(--panel);
-    }
+.pb-tab{
+  padding:12px 14px;
+  font-weight:700;
+  font-family: Montserrat, Inter, system-ui, sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  display:flex;align-items:center;
+  border-right:1px solid rgba(0,0,0,.07);
+  white-space:nowrap;
+  min-width:0;
+}
+.pb-tab:last-child{border-right:none}
+.pb-tab--accent{background:linear-gradient(180deg, var(--accent), var(--accent-2));color:#10244a}
+.pb-tab--muted{color:var(--muted)}
 
-    .pb-tab{
-      padding:12px 14px;
-      font-weight:700;
-      font-family: Montserrat, Inter, system-ui, sans-serif;
-      text-transform:uppercase;
-      letter-spacing:.05em;
-      display:flex;align-items:center;
-      border-right:1px solid rgba(0,0,0,.07);
-      white-space:nowrap;  /* no wrapping in header */
-      min-width:0;         /* allow shrink inside grid */
-    }
-    .pb-tab:last-child{border-right:none}
-    .pb-tab--accent{background:linear-gradient(180deg, var(--accent), var(--accent-2));color:#10244a}
-    .pb-tab--muted{color:var(--muted)}
+.pb-row{
+  padding:12px 14px;
+  font-weight:600;
+  border-bottom:1px solid var(--divider);
+  background:var(--panel);
+}
+.pb-row:nth-child(2n){ background:var(--panel-2); }
 
-    .pb-row{
-      padding:12px 14px;
-      font-weight:600;
-      border-bottom:1px solid var(--divider);
-      background:var(--panel);
-    }
-    .pb-row:nth-child(2n){ background:var(--panel-2); }
+.pb-pos{ font-family: Montserrat, Inter, system-ui, sans-serif; font-weight:800; }
+.pb-team{ color:#e8eeff; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; min-width:0; }
+.pb-prize{
+  text-align:right;
+  font-family: Montserrat, Inter, system-ui, sans-serif;
+  font-weight:800;
+  font-variant-numeric: tabular-nums;
+  padding-right:2px;
+}
 
-    .pb-pos{ font-family: Montserrat, Inter, system-ui, sans-serif; font-weight:800; }
-    .pb-team{
-      color:#e8eeff;
-      overflow:hidden; text-overflow:ellipsis; white-space:nowrap; min-width:0;
-    }
-    .pb-prize{
-      text-align:right;
-      font-family: Montserrat, Inter, system-ui, sans-serif;
-      font-weight:800;
-      font-variant-numeric: tabular-nums; /* equal digit widths = perfect column */
-      padding-right:2px;
-    }
+.pb-summary{ margin-top:16px; }
+.pb-summary-title{ font-size:1.1rem; margin:0 0 6px; }
+.pb-summary-list{ margin:0; padding-left:1.1rem; line-height:1.6; }
+.pb-legend{margin-top:10px;font-size:.92rem;color:var(--muted)}
 
-    .pb-legend{margin-top:14px;font-size:.92rem;color:var(--muted)}
+/* Responsive: keep readable proportions */
+@media (max-width: 520px){
+  .pb-header, .pb-row{ grid-template-columns: 58px minmax(0,1fr) 138px; }
+  .pb-tab, .pb-row{ padding:10px 10px; }
+}
+</style>
 
-    /* Responsive: keep readable proportions */
-    @media (max-width: 520px){
-      .pb-header, .pb-row{ grid-template-columns: 58px minmax(0,1fr) 138px; }
-      .pb-tab, .pb-row{ padding:10px 10px; }
-    }
-  </style>
+<script>
+// ===== Helper: currency (keeps your typed strings) =====
+const fmtINR = n => "₹" + n.toLocaleString('en-IN');
 
-  <script>
-    // ===== Data (edit as needed) =====
-    const pbEntries = [
-      {pos:1,team:'TBD',prize:'₹9,60,000'},
-      {pos:2,team:'TBD',prize:'₹7,20,000'},
-      {pos:3,team:'TBD',prize:'₹6,00,000'},
-      {pos:4,team:'TBD',prize:'₹4,80,000'},
-      {pos:5,team:'TBD',prize:'₹4,20,000'},
-      {pos:6,team:'TBD',prize:'₹4,20,000'},
-      {pos:7,team:'TBD',prize:'₹3,60,000'},
-      {pos:8,team:'TBD',prize:'₹3,60,000'},
-      {pos:9,team:'TBD',prize:'₹3,60,000'},
-      {pos:10,team:'TBD',prize:'₹3,60,000'},
-      {pos:11,team:'TBD',prize:'₹3,60,000'},
-      {pos:12,team:'TBD',prize:'₹3,60,000'},
-      {pos:13,team:'TBD',prize:'₹3,60,000'},
-      {pos:14,team:'TBD',prize:'₹3,60,000'},
-      {pos:15,team:'TBD',prize:'₹3,60,000'},
-      {pos:16,team:'TBD',prize:'₹3,60,000'},
-    ];
+// ===== Build entries from distribution (balanced to ₹2,00,000 with 5–5 awards) =====
+const tiered = [
+  { range: [1],       prize: 50000 },
+  { range: [2],       prize: 40000 },
+  { range: [3],       prize: 30000 },
+  { range: [4,5,6],   prize: 10000 },
+  { range: [7,8],     prize: 7000  },
+  { range: [9,10,11,12], prize: 5000 },
+  { range: [13,14,15,16], prize: 1500 }, // adjusted to keep total = 2,00,000
+];
 
-    // Split into two columns
-    const pbLeft  = pbEntries.slice(0, 8);
-    const pbRight = pbEntries.slice(8);
+const sideAwards = [
+  { label: "🎯 Most Kills (Player)", prize: 5000 },
+  { label: "🔥 Best Clutch",         prize: 5000 }, // 5–5 each
+];
 
-    function pbAddRows(containerId, rows){
-      const el = document.getElementById(containerId);
-      rows.forEach(r => {
-        const row = document.createElement('div');
-        row.className = 'pb-row';
-        row.innerHTML = `
-          <div class="pb-pos">${r.pos}</div>
-          <div class="pb-team">${r.team}</div>
-          <div class="pb-prize">${r.prize}</div>
-        `;
-        el.appendChild(row);
-      });
-    }
+let pbEntries = [];
+tiered.forEach(t => {
+  t.range.forEach((pos) => {
+    pbEntries.push({ pos, team: "TBD", prize: fmtINR(t.prize) });
+  });
+});
 
-    pbAddRows('pb-left', pbLeft);
-    pbAddRows('pb-right', pbRight);
-  </script>
+// ===== Split evenly into left/right =====
+const half = Math.ceil(pbEntries.length / 2);
+const pbLeft  = pbEntries.slice(0, half);
+const pbRight = pbEntries.slice(half);
+
+function pbAddRows(containerId, rows){
+  const el = document.getElementById(containerId);
+  rows.forEach(r => {
+    const row = document.createElement('div');
+    row.className = 'pb-row';
+    row.innerHTML = `
+      <div class="pb-pos">${r.pos}</div>
+      <div class="pb-team">${r.team}</div>
+      <div class="pb-prize">${r.prize}</div>
+    `;
+    el.appendChild(row);
+  });
+}
+
+pbAddRows('pb-left', pbLeft);
+pbAddRows('pb-right', pbRight);
+
+// (Optional) If you want to show the two special awards in the grid,
+// you could append them as rows without a position, or render a separate small list.
+// Keeping them in the summary to avoid confusing the rank grid.
+</script>
+
   <!-- ===== /Prize Breakdown ===== -->
 
   <div class="sponsor-section padding-bottom">
@@ -561,51 +568,134 @@
         <h2>News and <span>Headlines</span></h2>
         <p>Our success in creating business solutions is due in large part <br>to our talented and highly committed team.</p>
       </div>
-      <div class="row grid-post">
-        <div class="col-lg-4 col-md-6 padding-15 wow fade-in-bottom" data-wow-delay="300ms">
-          <div class="post-card">
-            <div class="post-thumb">
-              <img src="assets/img/1.png" alt="post">
-            </div>
-            <div class="post-content-wrap">
-              <ul class="post-meta"></ul>
-              <div class="post-content">
-                <h3><a href="blog-details.html">Stage 1: Online Qualifiers</a></h3>
-                <p>Teams: 1024 <br>Groups: 64 groups × 16 teams<br>Matches per group: 1 × Erangel, 1 × Miramar</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 padding-15 wow fade-in-bottom" data-wow-delay="300ms">
-          <div class="post-card">
-            <div class="post-thumb">
-              <img src="assets/img/2.png" alt="post">
-            </div>
-            <div class="post-content-wrap">
-              <ul class="post-meta"></ul>
-              <div class="post-content">
-                <h3><a href="blog-details.html"> Stage 2: Online Quarterfinals</a></h3>
-                <p>Teams: 128 <br>Groups: 8 groups × 16 teams<br>Matches per group: 1 × Erangel, 1 × Sanhok<br>Advancement: Top 2 per group ➜ 16 teams advance</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 padding-15 wow fade-in-bottom" data-wow-delay="300ms">
-          <div class="post-card">
-            <div class="post-thumb">
-              <img src="assets/img/3.png" alt="post">
-            </div>
-            <div class="post-content-wrap">
-              <ul class="post-meta"></ul>
-              <div class="post-content">
-                <h3><a href="blog-details.html">Stage 3: LAN Finals – Chandigarh University</a></h3>
-                <p>Teams: 16 (from Stage 2) <br>Format: Best-of-5 or Best-of-6 matches<br>Maps: Erangel - 3, Sanhok - 1, Miramar - 2<br>Scoring: Same</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
+<div class="row grid-post">
+  <!-- Card 1: Campus Ambassador -->
+  <div class="col-lg-4 col-md-6 padding-15 wow fade-in-bottom" data-wow-delay="300ms">
+    <div class="post-card position-relative">
+      <div class="post-thumb">
+        <img
+          src="assets/img/GUESS/1.png"
+          alt="BGCL 2025 Campus Ambassador promo"
+          loading="lazy"
+          width="600" height="400"
+          style="width:100%;height:auto;"
+        >
       </div>
+      <div class="post-content-wrap">
+        <ul class="post-meta"></ul>
+        <div class="post-content">
+          <h3 class="mb-2">Become a BGCL 2025 Campus Ambassador</h3>
+          <p class="mb-3">
+            Lead your campus, drive 10+ team registrations &amp; ignite the gaming spirit.<br>
+            🎖 Certificates, 🎁 BGCL goodies &amp; 🚀 spotlight on socials await you!
+          </p>
+
+          <a
+            class="btn btn-primary"
+            href="https://forms.gle/UbgsZR3NQvC96ep76"
+            target="_blank"
+            rel="noopener"
+            aria-label="Apply to become a BGCL 2025 Campus Ambassador (opens in a new tab)"
+          >Apply Now</a>
+
+          <a
+            href="https://forms.gle/UbgsZR3NQvC96ep76"
+            class="stretched-link"
+            target="_blank"
+            rel="noopener"
+            aria-hidden="true"
+            tabindex="-1"
+          ></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 2: Community Partner -->
+  <div class="col-lg-4 col-md-6 padding-15 wow fade-in-bottom" data-wow-delay="300ms">
+    <div class="post-card position-relative">
+      <div class="post-thumb">
+        <img
+          src="assets/img/GUESS/2.png"
+          alt="BGCL 2025 Community Partner promo"
+          loading="lazy"
+          width="600" height="400"
+          style="width:100%;height:auto;"
+        >
+      </div>
+      <div class="post-content-wrap">
+        <ul class="post-meta"></ul>
+        <div class="post-content">
+          <h3 class="mb-2">Become a BGCL 2025 Community Partner!</h3>
+          <p class="mb-3">
+            Promote BGCL, drive registrations &amp; join India’s biggest campus gaming movement.<br>
+            🎖 Certificates, 🎁 merch, 🚀 logo features &amp; 🎮 free passes await your community!
+          </p>
+
+          <a
+            class="btn btn-primary"
+            href="https://forms.gle/cyXhzRMKJ3e7bFce8"
+            target="_blank"
+            rel="noopener"
+            aria-label="Apply to become a BGCL 2025 Community Partner (opens in a new tab)"
+          >Apply Now</a>
+
+          <a
+            href="https://forms.gle/cyXhzRMKJ3e7bFce8"
+            class="stretched-link"
+            target="_blank"
+            rel="noopener"
+            aria-hidden="true"
+            tabindex="-1"
+          ></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 3: Venue Partner -->
+  <div class="col-lg-4 col-md-6 padding-15 wow fade-in-bottom" data-wow-delay="300ms">
+    <div class="post-card position-relative">
+      <div class="post-thumb">
+        <img
+          src="assets/img/GUESS/3.png"
+          alt="BGCL 2025 Venue Partner promo"
+          loading="lazy"
+          width="600" height="400"
+          style="width:100%;height:auto;"
+        >
+      </div>
+      <div class="post-content-wrap">
+        <ul class="post-meta"></ul>
+        <div class="post-content">
+          <h3 class="mb-2">Become a BGCL 2025 Venue Partner!</h3>
+          <p class="mb-3">
+            Host official BGCL matches, screenings &amp; LAN events at your venue.<br>
+            🎖 Certificates, 🚀 branding, 📸 media coverage &amp; 🎮 exclusive engagement await!
+          </p>
+
+          <a
+            class="btn btn-primary"
+            href="https://forms.gle/yourVenuePartnerFormId"
+            target="_blank"
+            rel="noopener"
+            aria-label="Apply to become a BGCL 2025 Venue Partner (opens in a new tab)"
+          >Apply Now</a>
+
+          <a
+            href="https://forms.gle/yourVenuePartnerFormId"
+            class="stretched-link"
+            target="_blank"
+            rel="noopener"
+            aria-hidden="true"
+            tabindex="-1"
+          ></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
     </div>
   </section>
   <!--blog-section-->
